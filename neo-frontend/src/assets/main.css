@@ -1,0 +1,194 @@
+/* ============================================================
+   Neo – Global Design System
+   Palette: deep navy / electric blue / pure black / cold white
+   ============================================================ */
+
+:root {
+  /* Core palette */
+  --col-void:      #000000;
+  --col-base:      #070B14;
+  --col-surface:   #0D1424;
+  --col-elevated:  #111827;
+  --col-border:    #1E2D47;
+  --col-border-hi: #2563EB33;
+  --col-muted:     #1E3A5F;
+
+  /* Text */
+  --col-text-primary:   #EEF2FF;
+  --col-text-secondary: #94A3B8;
+  --col-text-dim:       #475569;
+
+  /* Blue accent spectrum */
+  --col-blue-50:  #EFF6FF;
+  --col-blue-100: #DBEAFE;
+  --col-blue-400: #60A5FA;
+  --col-blue-500: #3B82F6;
+  --col-blue-600: #2563EB;
+  --col-blue-700: #1D4ED8;
+  --col-blue-900: #1E3A5F;
+
+  /* Semantic */
+  --col-success: #10B981;
+  --col-warning: #F59E0B;
+  --col-error:   #EF4444;
+
+  /* Typography */
+  --font-display: 'Syne', sans-serif;
+  --font-mono:    'Space Mono', monospace;
+  --font-body:    'DM Sans', sans-serif;
+
+  /* Spacing scale */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Radius */
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.6);
+  --shadow-md:  0 4px 16px rgba(0,0,0,0.5);
+  --shadow-lg:  0 8px 32px rgba(0,0,0,0.6);
+  --shadow-glow: 0 0 24px rgba(37,99,235,0.15);
+
+  /* Transitions */
+  --t-fast:   120ms ease;
+  --t-normal: 220ms ease;
+  --t-slow:   400ms ease;
+
+  /* Layout */
+  --sidebar-w: 260px;
+  --header-h:  56px;
+}
+
+/* ── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--col-base);
+  color: var(--col-text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--col-muted); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--col-blue-600); }
+
+/* ── Typography ────────────────────────────────────────────── */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+code, pre, .mono {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+/* ── Links ─────────────────────────────────────────────────── */
+a { color: var(--col-blue-400); text-decoration: none; transition: color var(--t-fast); }
+a:hover { color: var(--col-blue-100); }
+
+/* ── Focus ─────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--col-blue-500);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Selection ─────────────────────────────────────────────── */
+::selection { background: var(--col-blue-600); color: white; }
+
+/* ── Utility classes ───────────────────────────────────────── */
+.text-primary   { color: var(--col-text-primary); }
+.text-secondary { color: var(--col-text-secondary); }
+.text-dim       { color: var(--col-text-dim); }
+.text-blue      { color: var(--col-blue-400); }
+.text-mono      { font-family: var(--font-mono); }
+.text-display   { font-family: var(--font-display); }
+
+.surface   { background: var(--col-surface); }
+.elevated  { background: var(--col-elevated); }
+.bordered  { border: 1px solid var(--col-border); }
+
+.flex      { display: flex; }
+.flex-col  { display: flex; flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-2     { gap: var(--space-2); }
+.gap-3     { gap: var(--space-3); }
+.gap-4     { gap: var(--space-4); }
+
+.truncate  { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ── Animations ────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37,99,235,0); }
+  50%       { box-shadow: 0 0 0 8px rgba(37,99,235,0.15); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes dot-bounce {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+  40%           { transform: translateY(-6px); opacity: 1; }
+}
+
+.anim-fade-in      { animation: fadeIn 0.3s var(--t-normal) both; }
+.anim-fade-in-left { animation: fadeInLeft 0.3s var(--t-normal) both; }
+
+/* ── Loading skeleton ──────────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--col-surface) 25%,
+    var(--col-elevated) 50%,
+    var(--col-surface) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Transitions ───────────────────────────────────────────── */
+.slide-fade-enter-active,
+.slide-fade-leave-active { transition: all 0.25s ease; }
+.slide-fade-enter-from   { opacity: 0; transform: translateX(-16px); }
+.slide-fade-leave-to     { opacity: 0; transform: translateX(-16px); }
+
+.fade-enter-active,
+.fade-leave-active { transition: opacity 0.2s ease; }
+.fade-enter-from,
+.fade-leave-to     { opacity: 0; }
