@@ -9,8 +9,8 @@
 import axios from 'axios'
 
 const api = axios.create({
-  // baseURL: import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1',
-  baseURL: 'http://34.44.46.97:8000/api/v1',
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1',
+  // baseURL: 'http://34.44.46.97:8000/api/v1',
   timeout: 60_000 // 60 s — generous for AI calls
 })
 
